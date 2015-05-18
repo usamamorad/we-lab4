@@ -1,0 +1,44 @@
+@(bodyId: String)
+@import play.i18n._
+
+@navWrap()(list: Html) = {
+	<nav role="navigation" aria-labelledby="navheading">
+		<h2 id="navheading" class="accessibility">Navigation</h2>
+		<ul>
+			@list
+		</ul>
+	</nav>
+}
+
+@bodyId match {
+	case "login-page" => {
+	}
+	
+	case "register-page" => {
+		@navWrap(){
+			<li>
+				<a	class="orangelink navigationlink"
+					id="loginlink"
+					title="@Messages.get("nav.login.title")"
+					href="@routes.Authentication.login"
+					accesskey="l">
+					@Messages.get("nav.login")
+				</a>
+			</li>
+		}
+	}
+	
+	case _  => {
+		@navWrap(){
+			<li>
+				<a	class="orangelink navigationlink"
+					id="logoutlink"
+					title="@Messages.get("nav.logout.title")"
+					href="@routes.Authentication.logout"
+					accesskey="l">
+					@Messages.get("nav.logout")
+				</a>
+			</li>
+		}
+	}
+}

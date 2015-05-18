@@ -1,0 +1,659 @@
+/***************************************
+ * Color Reference:
+ *   Body BG (Gradient Start): #FFFFFF
+ *   Body BG (Gradient End):   #D3D8E8
+ *   Purple BG:                #36528F
+ *   Purple Border:            #172B57
+ *   Orange BG:                #FC7800
+ *   Orange Border:            #784600 
+ *   Green BG:                 #36D344
+ *   Green Border:             #116D01 
+ *   Big Blue:                 #006BAC
+ *   Input Border:             #03345F
+ *   Error Red:                #E60808
+ *   Positive Green:           #029902
+ *   Button Disabled Border:   #565656
+ *   Button Disabled BG:       #CCCCCC
+ *   Input Disabled Border:    #5C5F63
+ *   Input Disabled BG:        #D3D8E3
+ *   Input Disabled Text:      #929396
+ *   Light Gray Background:    #FDFDFD
+ *   Middle Gray Background:   #FBFBFB
+ ***************************************/
+
+/***********************************
+ * Main Content div
+ ***********************************/ 
+
+div[role="main"] {
+   max-width: 85em;
+   margin: 0 auto;
+}
+
+/***********************************
+ * Sections
+ ***********************************/ 
+
+section#login,
+div#register {
+   width: 26em;
+   margin: 1em auto 0 auto;
+   clear: both;
+}
+
+section#registerforward {
+   text-align: center;
+}
+
+section#gameinfo {
+   float: right;
+   height: 100%;
+   width: 15em;
+   margin: 0em 0em 1em 0em;
+}
+
+section.playerinfo {
+   margin-bottom: 0.5em;
+}
+
+section#question-selection,
+section#question,
+section#timer {
+   min-width: 32em;
+   max-width: 70em;
+   margin-left: 0.5em;
+   margin-right: 16em;
+}
+
+section#lastgame {
+   clear: both;
+   margin: 1em 1%;
+}
+
+section.questioncategory {
+   display: inline-block;
+   width: 20%;
+   float: left;
+   margin: 1em 0 0.5em 0;
+}
+
+section#winnerinfo {
+   height: 100%;
+   width: 32em;
+   margin: 20px auto;
+}
+
+section#newgame {
+   clear: both;
+   text-align: center;
+   margin-top: 2em;
+}
+
+@media screen and (max-width: 48em) {
+   section#question-selection ,
+   section#question,
+   section#timer  {
+      width: 100%;
+      min-width: initial;
+      max-width: initial;
+      clear: both;
+      margin: 0;
+   }
+}
+
+@media screen and (max-width: 32em) {
+   section#login ,
+   section#registerforward,
+   section#register,
+   section#winnerinfo  {
+      width: 98%;
+   }
+   
+   section.questioncategory {
+      width: 100%;
+      padding: 0.5em 0em;
+      clear: both;
+      float: none;
+      margin: 0;
+   }
+}
+ 
+/***********************************
+ * Forms
+ ***********************************/ 
+
+fieldset {
+   border: 0;
+}
+
+legend {
+   font-size: 1.3em;
+   padding: 0px;
+   margin: 0.5em 0em 0.5em 0em;
+   font-weight: bold;
+   display: block;
+   clear: both;
+   color: #006BAC;
+}
+
+label {
+    display: block;
+    padding: 0.25em 0 0.25em 0;
+    float: left;
+    clear: both;
+}
+ 
+input,
+select {
+    display: block;
+    width: 15em;
+    padding: 0.25em 1ex 0.25em 1ex;
+    margin-bottom: 0.5em;
+    float: right;
+    line-height: 1.5em;
+    margin: 0px 0px 1em;
+    border: 0.15ex solid #03345F;
+    border-radius: 0.5ex;
+    background-color: #FFFFFF;
+}
+
+
+select {
+   width: 16.3em;
+   margin-bottom: 1em;
+}
+
+input.error{
+    border: 0.15ex solid #E60808 !important;
+}
+
+option {
+   margin: 0.15em 0.25em;
+}
+
+input[type="radio"] {
+   float: none;
+   width: 1em;
+   display: inline;  
+   margin: 0;
+}
+
+input[type="radio"] + label {
+   float: none;
+   display: inline;
+   margin-right: 0.9em;
+   padding-left: 0;
+}
+
+input[type="submit"] {
+   margin: 1em 0 0 0em;
+   width: inherit;   
+   float: right;
+   display: block;
+   cursor: pointer;
+}
+
+input[type="submit"]:disabled{
+   border-color: #565656;
+   background-image: none;
+   background-color: #CCCCCC;
+   cursor: auto;
+}
+
+fieldset.inputset {
+   display: block;
+   width: 15em;
+   padding: 0.25em 1ex 0.25em 0ex;
+   margin-bottom: 0.5em;
+   float: right;
+   margin: 0px 1ex 1em;
+}
+
+/* error messages in forms */
+div[role="alert"] {
+   clear: both;
+   font-weight: bold;
+   margin: 0px 0px 1em;
+   padding: 0.5em;
+   color: #FFFFFF;
+   background-color: #E60808;
+}
+
+/* success messages in forms */
+div[role="success"] {
+   clear: both;
+   font-weight: bold;
+   margin: 0px 0px 1em;
+   padding: 0.5em;
+   color: #FFFFFF;
+   background-color: #1BB34B;
+}
+
+@media screen and ( max-width:48em ){  
+   input[type="submit"] {
+      margin-right: 1%;
+   }
+}
+
+@media screen and ( max-width:32em ){    
+   input, select , fieldset.inputset {
+        display:block;
+        width: 96%;
+        margin: 0 1% 1em 1%;
+        padding: 0.25em 1% 0.25em 1%;
+        float: none;
+   }
+   
+   select, fieldset.inputset {
+		width: 98%;
+   }
+    
+   label {
+        display: block;
+        width: 98%;
+        padding: 0 1% 0 1%;
+        margin: 0 0 0 0;
+        text-align: left;
+    }
+    
+   legend {
+      margin-left: 1%;
+   }
+    
+   input[type="submit"] {
+      display: block;
+      margin: 1em 1% 0 1%;
+      width: 98%;
+      float: none;
+      padding: 0.4em 2.5em;
+   }
+   
+   div[role="alert"] {
+      margin: 1em 1% 1em 1%;
+   }
+}
+
+/***********************************
+ * Game Info
+ ***********************************/ 
+
+#gameinfo table,
+#winnerinfo table {
+   vertical-align: top;
+   display: inline-block;
+}
+
+#gameinfo img.avatar {
+   background-color: #FDFDFD;
+   background: linear-gradient(#FDFDFD, #F0F0F0) 0% 0%; 
+   border-radius: 0.3ex;
+   border: 0.15ex solid #000;
+   width: 75px;
+} 
+
+#gameinfo .playerinfo.leader td {
+   font-weight: bold;
+}
+
+#gameinfo .playerinfo.leader img.avatar {
+   border-width: 2px;
+   border-color: #FC7800;
+}
+
+#gameinfo #round {
+   margin: 0 0 1em 0;
+   font-weight: bold;
+}
+
+@media screen and ( max-width:48em ){
+   section#gameinfo {
+      width: 95%;
+      float: none;
+      margin: 0 auto;
+   }
+   
+   #gameinfo #round {
+     text-align: center;
+	  clear: both;
+	  padding-top: 0em;
+   }
+   
+   #gameinfo section.playerinfo {
+      margin-bottom: 0;
+   }
+   
+   #gameinfo section#firstplayer {
+      float: left;
+   }
+   
+   #gameinfo section#secondplayer {
+      float: right;
+   }
+   
+   #gameinfo section#secondplayer img.avatar {
+      float: right;
+   }
+   
+   #gameinfo table {
+      margin-top: 0.5em;
+   }
+   
+   section#secondplayer table {
+      margin-right: 0.5em;
+      text-align: right;
+   }
+}
+
+@media screen and ( max-width:32em ) {
+   
+   #gameinfo table {
+      margin-top: 0em;
+   }
+   
+   #gameinfo img.avatar {
+      width: 50px;
+   }
+}
+ 
+/***********************************
+ * Login
+ ***********************************/ 
+
+/* override default header for big logo */
+#login-page h1#bannerheading {  
+   width: 7.5em;
+   min-height: 150px;
+   padding: 1.1em 0 0 210px;
+   margin: 20px auto 0 auto;
+   background-image: url(../images/big-logo-big.png);
+   background-position: left top;
+   background-repeat: no-repeat;
+   color: #006BAC;
+   float: none;
+   font-size: 3em;
+}
+
+#registerhint {
+   margin: 2em 0 1em 0;
+   text-align: center;
+   font-weight: bold;
+}
+
+@media screen and (max-width: 48em) {
+   #login-page h1#bannerheading {
+      font-size: 2em;
+   }
+}
+
+@media screen and (max-width: 32em) {
+   #login-page h1#bannerheading {
+      background-image: url(../images/big-logo-small.png);
+      background-position: left 0.2em top 5px;
+      padding: 0.5em 0 0 60px;
+      margin-top: 10px;
+      font-size: 1em;
+      min-height: 50px;
+   }
+}
+
+/***********************************
+ * Register
+ ***********************************/ 
+ 
+p#requiredhint{
+    clear: both;
+    font-weight: normal;
+    padding:1em;
+    text-align:center;
+}
+
+/***********************************
+ * Jeopardy Question Selection
+ ***********************************/ 
+
+/* User info announcement (correct/positive, wrong/negative) */
+.user-info {
+   width: 85%;
+   margin: 0 auto;
+   font-size: 1.2em;
+   font-weight: bold;
+   text-align: center;
+   margin-bottom: 0.3em;
+   padding: 0.2em 0.5em;
+   font-weight: normal;
+   background-color: #FBFBFB;
+   background: linear-gradient(#FBFBFB, #F5F5F5) 0% 0%; 
+   border: 1px solid #5C5F63;
+}
+
+.positive-change {
+   color: #029902;
+   border-color: #029902;
+}
+
+.negative-change {
+   color: #E60808;
+   border-color: #E60808;
+}
+
+@media screen and (max-width: 32em) {
+   .user-info {
+      font-size: 1em;
+   }
+}
+
+
+/* question selection (categories and question values) */
+
+#question-selection .tile,
+#question .tile {
+   display: block;
+   padding: 0.5em 0;
+   width: 96%;
+   margin: 2% auto;
+   text-align: center;
+   border: 1px solid #000000;
+}
+
+#question-selection .category-title {
+   font-size: 1.3em;
+   background: linear-gradient(#FC7800, #E66D00) 0% 0%;
+   background-color: #FC7800;
+   color: #172B57; /* 172B57 */
+   border-color: #784600;
+   word-wrap: break-word;
+}
+
+#question-selection ol,
+#question ul  {
+   list-style: none;
+}
+
+/* remove clickable radio button and checkbox */
+#question-selection input[type="radio"],
+#question input[type="checkbox"] {
+    position: absolute;
+    left: -999999em;
+}
+
+/* use label to click radio button */
+#question-selection label,
+#question label {
+   font-size: 1.2em;
+   background-color: #36528F;
+   background: linear-gradient(#36528F, #29447D) 0% 0%; 
+   color: #fff; 
+}
+
+#question-selection input[type="radio"]:hover + label,
+#question-selection input[type="radio"]:checked + label,
+#question input[type="checkbox"]:hover + label,
+#question input[type="checkbox"]:checked + label {
+   background: linear-gradient(#FC7800, #E66D00) 0% 0%;
+   background-color: #FC7800;
+   font-weight: bold;
+}
+#question-selection input[type="radio"]:disabled + label,
+#question input[type="checkbox"]:disabled + label {
+    background-image: none;
+    background-color: #D3D8E3;
+    color: #929396;
+    cursor: auto;
+    font-weight: normal;
+    border-color: #5C5F63;
+}
+
+@media screen and (max-width:32em){
+   #question-selection .tile  {
+      display: block;
+      width: 98%;
+      margin: 0.2em auto;
+   }
+}
+
+/***********************************
+ * Jeopardy Question
+ ***********************************/ 
+
+#question #questiontype {
+   text-align: center;
+   margin: 0 0 1em 0;
+   font-weight: bold;
+   font-size: 1.2em;
+}
+
+#question #questiontext {
+   margin: 0 0 1em 0;
+   text-align: center;
+   color: #36528F;
+   padding: 0 0.5em; 
+   font-weight: bold;
+   font-size: 1.5em;
+}
+
+#question .tile {
+   width: 98%;
+   float: none;
+   padding: 1em 0;
+   margin: 1% auto;
+}
+
+#question li {
+    display: inline-block;
+    width: 49.5%;
+}
+
+#timer p {
+    margin: 1em 0 0 0.5em;
+}
+
+#timer meter {
+   display: block;
+   margin: 0 0.5em;
+   width: 50%
+}
+
+@media screen and (max-width:32em){
+   #question li {
+      width: 100%;
+   }
+}
+ 
+/***********************************
+ * Winner
+ ***********************************/
+
+#winner-page section#gameinfo {
+   float: none;
+   width: 100%;
+   margin: 0 auto;
+}
+ 
+#winner-page .playerinfo table {
+   margin-left: 0.5em;
+   text-align: left;
+}
+ 
+#winner-page .playerinfo {
+   width: 31em;
+   margin: 0 auto 1em auto;
+}
+
+#winner-page img.avatar {
+   margin-left: 125px;
+   background: linear-gradient(#FDFDFD, #F0F0F0) 0% 0%; 
+}
+
+#winner-page td.playername,
+#winner-page td.playerpoints {
+   font-size: 1.5em;
+}
+
+#winner-page .playerinfo.leader img.avatar {
+   width: 200px;
+   margin-left: 0px;
+}
+
+#winner-page .playerinfo.leader table {
+   margin-top: 2.5em;
+}
+
+#winner-page .playerinfo.leader td {
+   font-size: 2em;
+}
+
+#winner-page #winnerannouncement {
+   color: #36528F;
+   margin-bottom: 0.5em;
+   font-weight: bold;
+   font-size: 2.5em;
+   text-align: center;
+}
+
+#winner-page #new_game {
+	float: none;
+	margin: 0 auto;
+}
+
+@media screen and ( max-width:48em ) {
+   #winner-page .playerinfo table {
+      margin-top: 0;
+   }
+   
+   #winner-page #gameinfo section.playerinfo {
+      margin-bottom: 1em;
+   }
+}
+
+@media screen and ( max-width:32em ) {
+   #winner-page img.avatar  {
+      margin-left: 25px;
+   }
+   
+   #winner-page #winnerannouncement {
+      font-size: 1.5em;
+   }
+   
+   #winner-page .playerinfo {
+      width: 100%;
+      text-align: center;
+   }
+
+   #winner-page .playerinfo.leader img.avatar {
+      width: 75px;
+   }
+   
+   #winner-page .playerinfo table {
+      width: 7em;
+      margin-top: 0em;
+   }
+   
+   #winner-page .playerinfo.leader table {
+      margin-top: 0.5em;
+   }
+   
+   #winner-page .playerinfo td,
+   #winner-page .playerinfo.leader td {
+      font-size: 1em;
+   }
+}

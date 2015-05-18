@@ -1,0 +1,71 @@
+@(game: models.JeopardyGame)
+@import play.i18n._
+@import helper._
+
+@marvin = @{game.getMarvinPlayer()}
+@marvinQuestion = @{marvin.getChosenQuestion()}
+
+@main("selection-page", "Fragenauswahl") {
+      <!-- Content -->
+      <div role="main"> 
+         @gameInfo(game.getLeader(), game.getSecond(), game.getMaxQuestions(), game.isHumanPlayer(game.getLeader().getUser()))
+
+         <!-- Question -->
+         <section id="question-selection" aria-labelledby="questionheading">
+            <h2 id="questionheading" class="black accessibility">Jeopardy</h2>
+            @userinfo(game.getHumanPlayer(), true, Messages.get("userinfo.human"), Messages.get("userinfo.computer"), Messages.get("userinfo.correct"), Messages.get("userinfo.wrong"))
+            @userinfo(game.getMarvinPlayer(), false, Messages.get("userinfo.human"), Messages.get("userinfo.computer"), Messages.get("userinfo.correct"), Messages.get("userinfo.wrong"))
+            
+             @if(marvinQuestion != null) {
+            	<p class="user-info">@marvin.getUser().getName() @Messages.get("jeopardy.has") @Messages.get("jeopardy.chosen1") @marvinQuestion.getCategory().getName(lang.code) @Messages.get("jeopardy.for") € @marvinQuestion.getValue() @Messages.get("jeopardy.chosen2").</p>
+            }
+            @helper.form(action=routes.GameController.questionSelected()) {
+               <fieldset>
+               <legend class="accessibility">@Messages.get("acc.questionselection")</legend>
+               @for((category, i) <- game.getCategories().zipWithIndex) {
+               	   <section class="questioncategory" aria-labelledby="@Messages.get("id."+category.getNameEN())">
+	                  <h3 id="@Messages.get("id."+category.getNameEN())" class="tile category-title">
+	                  	<span class="accessibility">@Messages.get("category"): </span>@category.getName(lang.code)
+	                  </h3>
+	                  <ol class="category_questions">
+	                  @for((question, j) <- category.getQuestions().zipWithIndex) {
+	                  	<li>
+	                  		<input name="question_selection" id="question_@(i)_@(j)" value="@question.getId()" type="radio" @if(game.hasBeenChosen(question)){disabled="disabled"}/>
+	                  		<label class="tile clickable" for="question_@(i)_@(j)">@question.getValue() €</label>
+						</li>
+	                  }
+	                  </ol>
+	               </section>
+               }
+               </fieldset>
+               <input class="greenlink formlink clickable" name="question_submit" id="next" type="submit" value="@Messages.get("jeopardy.choose")" accesskey="s" />
+            }
+         </section>
+         
+         <section id="lastgame" aria-labelledby="lastgameheading">
+            <h2 id="lastgameheading" class="accessibility">@Messages.get("quiz.lastgameinfo")</h2>
+            <p>@Messages.get("quiz.lastgame"): @Messages.get("quiz.never")</p>
+         </section>
+		</div>
+} {	  
+	  <script type="text/javascript">
+            //<![CDATA[
+            
+            // initialize time
+            $(document).ready(function() {
+                // set last game
+                if(supportsLocalStorage()) {
+	                var lastGameMillis = parseInt(localStorage['lastGame'])
+	                if(!isNaN(parseInt(localStorage['lastGame']))){
+	                    var lastGame = new Date(lastGameMillis);
+	                	$("#lastgame p").replaceWith('<p>Letztes Spiel: <time datetime="'
+	                			+ lastGame.toUTCString()
+	                			+ '">'
+	                			+ lastGame.toLocaleString()
+	                			+ '</time></p>')
+	                }
+            	}
+            });            
+            //]]>
+        </script>
+}

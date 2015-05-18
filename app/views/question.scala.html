@@ -1,0 +1,80 @@
+@(game: models.JeopardyGame)
+@import play.i18n._
+@import helper._
+
+@question = @{game.getHumanPlayer().getChosenQuestion()}
+
+@main("question-page", "Frage") {
+<!-- Content -->
+<div role="main"> 
+	<!-- info -->
+	@gameInfo(game.getLeader(), game.getSecond(), game.getMaxQuestions(), game.isHumanPlayer(game.getLeader().getUser()))
+	
+	<!-- Question -->
+	<section id="question" aria-labelledby="questionheading">
+			@helper.form(action=routes.GameController.submitAnswers(), 'id -> "questionform") {
+				 <h2 id="questionheading" class="accessibility">Frage</h2>
+				 <p id="questiontype">@question.getCategory().getName(lang.code) @Messages.get("jeopardy.for") @question.getValue() €</p>
+				 <p id="questiontext">@question.getText(lang.code)</p>
+				 <ul id="answers">
+				 @for(answer <- question.getShuffledAnswers()) {
+				 	<li>
+				 		<input name="answers[]" id="answer_@answer.getId()" value="@answer.getId()" type="checkbox"/>
+				 		<label class="tile clickable" for="answer_@answer.getId()">@answer.getText(lang.code)</label>
+				 	</li>
+				 }
+				 </ul>
+				 <input id="timeleftvalue" type="hidden" value="100"/>
+				 <input class="greenlink formlink clickable" name="answer_submit" id="next" type="submit" value="@Messages.get("jeopardy.answer")" accesskey="s"/>
+			}
+	 </section>
+			
+	 <section id="timer" aria-labelledby="timerheading">
+			<h2 id="timerheading" class="accessibility">Timer</h2>
+			<p><span id="timeleftlabel">@Messages.get("quiz.timeleft"):</span> <time id="timeleft">00:30</time></p>
+			<meter id="timermeter" min="0" low="20" value="100" max="100"/>
+	 </section>
+</div>
+} {
+<script type="text/javascript">
+	//<![CDATA[
+	
+	// initialize time
+	$(document).ready(function() {
+			var maxtime = 30;
+			var hiddenInput = $("#timeleftvalue");
+			var meter = $("#timer meter");
+			var timeleft = $("#timeleft");
+			
+			hiddenInput.val(maxtime);
+			meter.val(maxtime);
+			meter.attr('max', maxtime);
+			meter.attr('low', maxtime/100*20);
+			timeleft.text(secToMMSS(maxtime));
+	});
+	
+	// update time
+	function timeStep() {
+			var hiddenInput = $("#timeleftvalue");
+			var meter = $("#timer meter");
+			var timeleft = $("#timeleft");
+			
+			var value = $("#timeleftvalue").val();
+			if(value > 0) {
+					value = value - 1;   
+			}
+			
+			hiddenInput.val(value);
+			meter.val(value);
+			timeleft.text(secToMMSS(value));
+			
+			if(value <= 0) {
+					$('#questionform').submit();
+			}
+	}
+	
+	window.setInterval(timeStep, 1000);
+	
+	//]]>
+</script>
+}

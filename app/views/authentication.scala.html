@@ -1,0 +1,39 @@
+@(myForm : DynamicForm)
+@import play.i18n._
+@import helper._
+
+@main("login-page", "Login") {
+	<!-- Login section -->
+	<div role="main">
+	    <section id="login" aria-labelledby="loginheading">
+	       <h2 id="loginheading" class="accessibility">Login</h2>
+	       
+	       @if(myForm.hasGlobalErrors) {
+			    <div role="alert" class="errors">
+			        @Messages.get("error.login")
+			    </div>
+			}
+			@if(flash.contains("registration.successful")) {
+		    	<div role="success" class="success">
+		        	@Messages.get(flash.get("registration.successful"))
+		    	</div>
+			}
+	       
+	        @helper.form(action = routes.Authentication.authenticate()) {
+	            <fieldset>
+	                <legend id="logindata">Login</legend>
+	                @inputField(myForm("userName"), 'required -> "required")
+	                @inputField(myForm("password"), 'type -> "password", 'required -> "required")
+	                <input name="login" id="loginsubmit" class="greenlink formlink clickable" type="submit" value="@Messages.get("auth.login")" />
+	            </fieldset>
+	        }
+	    </section>
+	    <!-- Register section -->
+	    <section id="registerforward" aria-labelledby="registerheading">
+	        <h2 id="registerheading" class="accessibility">@Messages.get("auth.gotoreg")</h2>
+	        <p id="registerhint">@Messages.get("auth.regquestion")</p>
+	        <a class="contentlink orangelink" title="@Messages.get("nav.altregister")" href="@routes.Registration.index()" accesskey="r">@Messages.get("auth.gotoreg")</a>
+	    </section>
+	</div>
+} {
+}

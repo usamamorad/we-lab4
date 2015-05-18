@@ -1,0 +1,27 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET		/							controllers.GameController.index()
+
+GET		/login					    controllers.Authentication.login()
+POST	/login						controllers.Authentication.authenticate()
+GET		/logout						controllers.Authentication.logout()
+
+GET		/register					controllers.Registration.index()
+POST	/register					controllers.Registration.create()
+
+GET		/jeopardy					controllers.GameController.playGame()
+POST	/jeopardy					controllers.GameController.newGame()
+
+GET		/jeopardy/question			controllers.GameController.playGame()
+POST	/jeopardy/question			controllers.GameController.questionSelected()
+
+GET		/jeopardy/answer			controllers.GameController.playGame()
+POST	/jeopardy/answer			controllers.GameController.submitAnswers()
+
+GET		/jeopardy/gameover			controllers.GameController.gameOver()
+
+# Map static resources from the /public folder to the /assets URL path
+GET		/assets/*file				controllers.Assets.at(path="/public", file)

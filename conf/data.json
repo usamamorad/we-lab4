@@ -1,0 +1,519 @@
+﻿[
+    { "nameEN": "Web Engineering",
+      "nameDE": "Web Engineering",
+      "questions": [
+        { "id": 1,
+          "textEN": "These are valid HTTP-Methoden.",
+          "textDE": "Dies sind gültige HTTP-Methoden",
+          "value": 10,
+          "wrongAnswers": [
+            {	"textEN" : "What is RETRIEVE?", "textDE" : "Was ist RETRIEVE?" },
+            {	"textEN" : "What is CHECK?", "textDE" : "Was ist CHECK?" },
+            {	"textEN" : "What is REMOVE?", "textDE" : "Was ist REMOVE?" },
+            {	"textEN" : "What is CREATE?",	"textDE" : "Was ist CREATE?" }
+          ],
+          "rightAnswers": [ // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            {	"textEN" : "What is POST?", "textDE" : "Was ist POST?" },
+            {	"textEN" : "What is HEAD?", "textDE" : "Was ist HEAD?" }
+          ]
+        },
+        { "id": 2,
+          "textEN": "These are web design methods.",
+          "textDE": "Dies sind Web Design-Methoden",
+          "value": 10,
+          "wrongAnswers": [
+            {	"textEN" : "What is Regressive shrinkage?", "textDE" : "Was ist Regressive shrinkage?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What is Graceful degradation?", "textDE" : "Was ist Graceful degradation?" },
+            {	"textEN" : "What is Progressive enhancement?", "textDE" : "Was ist Progressive enhancement?" },
+            {	"textEN" : "What is Responsive design?", "textDE" : "Was ist Responsive design?" }
+          ]
+        },
+        { "id": 3,
+          "textEN": "These elements have been newly introduced in HTML5.",
+          "textDE": "Diese Elemente wurden in HTML5 neu eingeführt",
+          "value": 20,
+          "wrongAnswers": [
+            {	"textEN" : "What is fieldset?", "textDE" : "Was ist fieldset?" },
+            {	"textEN" : "What is caption?", "textDE" : "Was ist caption?" },
+            {	"textEN" : "What is textarea?", "textDE" : "Was ist textarea?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is canvas?", "textDE" : "Was ist canvas?" },
+            {	"textEN" : "What is header?", "textDE" : "Was ist header?" },
+            {	"textEN" : "What is meter?", "textDE" : "Was ist meter?" }
+          ]
+        },
+        { "id": 4,
+          "textEN": "These principles are part of the \"Web Accessibility Guidelines\".",
+          "textDE": "Diese Prinzipien gehören zu den \"Web Accessibility Guidelines\"",
+          "value": 20,
+          "wrongAnswers": [
+            {	"textEN" : "What is Clear?", "textDE" : "Was ist Clear?" },
+            {	"textEN" : "What is Maintainable?", "textDE" : "Was ist Maintainable?" },
+            {	"textEN" : "What is Observable?", "textDE" : "Was ist Observable?" },
+            {	"textEN" : "What is Implementable?", "textDE" : "Was ist Implementable?" }
+          ],
+          "rightAnswers": [ // Perceivable, Operable, Understandable, Robust
+            {	"textEN" : "What is Perceivable?", "textDE" : "Was ist Perceivable?" },
+            {	"textEN" : "What is Robust?", "textDE" : "Was ist Robust?" }
+          ]
+        },
+        { "id": 5,
+          "textEN": "These technologies are used in the \"Semantic Web\".",
+          "textDE": "Diese Technologien kommen im \"Semantic Web\" zum Einsatz.",
+          "value": 30,
+          "wrongAnswers": [
+            {	"textEN" : "What is SQL?", "textDE" : "Was ist SQL?" },
+            {	"textEN" : "What is CAT?", "textDE" : "Was ist CAT?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What is RDF?", "textDE" : "Was ist RDF?" },
+            {	"textEN" : "What is OWL?", "textDE" : "Was ist OWL?" },
+            {	"textEN" : "What is SPARQL?", "textDE" : "Was ist SPARQL?" }
+          ]
+        },
+        { "id": 6,
+          "textEN": "JavaScript.",
+          "textDE": "JavaScript.",
+          "value": 40,
+          "wrongAnswers": [
+            {	"textEN" : "What language has static types?", "textDE" : "Was hat statische Typen?" },
+            {	"textEN" : "What is always executed on server side?", "textDE" : "Was läuft immer server-seitig?" },
+            {	"textEN" : "What has classes and objects?", "textDE" : "Was hat Klassen und Objekte?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What is object-oriented?", "textDE" : "Was ist objekt-orientiert?" },
+            {	"textEN" : "What is interpreted?", "textDE" : "Was wird interpretiert?" },
+            {	"textEN" : "What language has dynamic types?", "textDE" : "Was hat dynamische Typen?" }
+          ]
+        },
+        { "id": 7,
+          "textEN": "These languages are ECMAScript implementations.",
+          "textDE": "Diese Sprachen sind ECMAScript-Implementierungen.",
+          "value": 50,
+          "wrongAnswers": [
+            {	"textEN" : "What is F-Script?", "textDE" : "Was ist F-Script?" },
+            {	"textEN" : "What is AppleScript?", "textDE" : "Was ist AppleScript?" },
+            {	"textEN" : "What is VBScript?", "textDE" : "Was ist VBScript?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What is JScript?", "textDE" : "Was ist JScript?" },
+            {	"textEN" : "What is JavaScript?", "textDE" : "Was ist JavaScript?" },
+            {	"textEN" : "What is QtScript?", "textDE" : "Was ist QtScript?" }
+          ]
+        }
+      ]
+    },
+    { "nameEN": "TU Wien",
+      "nameDE": "TU Wien",
+      "questions": [
+        { "id": 8,
+          "textEN": "The TU Wien is located at these places.",
+          "textDE": "Diese Standorte hat die TU Wien.",
+          "value": 10,
+          "wrongAnswers": [
+            {	"textEN" : "What is the Freyung?", "textDE" : "Was ist die Freyung?" },
+            {	"textEN" : "What is the Universitätsring?", "textDE" : "Was ist der Universitätsring?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What are the Freihausgründe?", "textDE" : "Was sind die Freihausgründe?" },
+            {	"textEN" : "What is the Favoritenstraße?", "textDE" : "Was ist die Favoritenstraße?" }
+          ]
+        },
+        { "id": 9,
+          "textEN": "He/She is the rector of the TU Wien.",
+          "textDE": "Sie/Er ist RektorIn der TU Wien.",
+          "value": 10,
+          "wrongAnswers": [
+            {	"textEN" : "Who is Dr. Adalbert Prechtl?", "textDE" : "Wer ist Dr. Adalbert Prechtl?" },
+            {	"textEN" : "Who is Mag. Anna Steiger?", "textDE" : "Wer ist Mag. Anna Steiger?" },
+            {	"textEN" : "Who is Dr. Peter Skalicky?", "textDE" : "Wer ist Dr. Peter Skalicky?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "Who is Dr. Sabine Seidler?", "textDE" : "Wer ist Dr. Sabine Seidler?" }
+          ]
+        },
+        { "id": 10,
+          "textEN": "So many inscribed students has the TU Wien in the SS15.",
+          "textDE": "So viele fortgemeldete Studierende hat die TU Wien im SS15.",
+          "value": 20,
+          "wrongAnswers": [
+            {	"textEN" : "What is 15.000 - 20.000?", "textDE" : "Was ist 15.000 - 20.000?" },
+            {	"textEN" : "What is 10.000 - 15.000?", "textDE" : "Was ist 10.000 - 15.000?" },
+            {	"textEN" : "What is 20.000 - 25.000?", "textDE" : "Was ist 20.000 - 25.000?" }
+          ],
+          "rightAnswers": [
+            {	"textEN" : "What is 25.000 - 30.000?", "textDE" : "Was ist 25.000 - 30.000?" }
+          ]
+        },
+        { "id": 11,
+          "textEN": "In this year the TU Wien was founded.",
+          "textDE": "In diesem Jahr wurde TU Wien gegründet.",
+          "value": 20,
+          "wrongAnswers": [
+            {	"textEN" : "What is 1915?", "textDE" : "Was war 1915?" },
+            {	"textEN" : "What is 1955?", "textDE" : "Was war 1955?" },
+            {	"textEN" : "What is 1845?", "textDE" : "Was war 1845?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is 1815?", "textDE" : "Was war 1815?" }
+          ]
+        },
+        { "id": 12,
+          "textEN": "These faculties are part of the TU Wien.",
+          "textDE": "Diese Fakultäten gibt es an der TU Wien.",
+          "value": 30,
+          "wrongAnswers": [
+            {	"textEN" : "What is medicine?", "textDE" : "Was ist Medizin?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is technical chemistry?", "textDE" : "Was ist Technische Chemie?" },
+            {	"textEN" : "What is physics?", "textDE" : "Was ist Physik?" },
+            {	"textEN" : "What is informatics?", "textDE" : "Was ist Informatik?" }
+          ]
+        },
+        { "id": 13,
+          "textEN": "These are the top 3 studies at the TU Wien.",
+          "textDE": "Dies sind die Top 3 der belegten Studien an der TU Wien.",
+          "value": 40,
+          "wrongAnswers": [
+            {	"textEN" : "What is Bauingenieurwesen?", "textDE" : "Was ist Bauingenieurwesen?" },
+            {	"textEN" : "What is Maschinenbau?", "textDE" : "Was ist Maschinenbau?" },
+            {	"textEN" : "What is Wirtschaftsinformatik?", "textDE" : "Was ist Wirtschaftsinformatik?" }
+          ],
+          "rightAnswers": [ // http://www.tuwien.ac.at/wir_ueber_uns/zahlen_und_fakten/
+            {	"textEN" : "What is Informatik?", "textDE" : "Was ist Informatik?" },
+            {	"textEN" : "What is Architektur?", "textDE" : "Was ist Architektur?" },
+            {	"textEN" : "What is Elektrotechnik?", "textDE" : "Was ist Elektrotechnik?" }
+          ]
+        },
+        { "id": 14,
+          "textEN": "These institutes are part of the faculty of informatics.",
+          "textDE": "Diese Institute gibt es an der Fakultät für Informatik.",
+          "value": 50,
+          "wrongAnswers": [
+            {	"textEN" : "What is Verkehrswissenschaften?", "textDE" : "Was ist Verkehrswissenschaften?" },
+            {	"textEN" : "What is Computertechnik?", "textDE" : "Was ist Computertechnik?" },
+            {	"textEN" : "What is Mikroelektronik?", "textDE" : "Was ist Mikroelektronik?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is Gestaltuns- und Wirkungsforschung?", "textDE" : "Was ist Gestaltuns- und Wirkungsforschung?" },
+            {	"textEN" : "What is Softwaretechnik und Interaktive Systeme?", "textDE" : "Was ist Softwaretechnik und Interaktive Systeme?" }
+          ]
+        }
+      ]
+    },
+    { "nameEN": "Semi-sructured Data",
+      "nameDE": "Semistrukturierte Daten",
+      "questions": [
+        { "id": 15,
+          "textEN": "XML.",
+          "textDE": "XML.",
+          "value": 10,
+          "wrongAnswers": [
+            {	"textEN" : "What is a programing language?", "textDE" : "Was ist eine Programmiersprache?" },
+            {	"textEN" : "What is a network protocol?", "textDE" : "Was ist ein Netzwerkprotokoll?" },
+            {	"textEN" : "What is a database?", "textDE" : "Was ist eine Datenbank?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is a markup language?", "textDE" : "Was ist eine Auszeichnungssprache?" }
+          ]
+        },
+		{ "id": 16,
+		  "textEN": "These are well-known parsers for XML.",
+        "textDE": "Diese bekannten Parser gibt es für XML.",
+		  "value": 10,
+		  "wrongAnswers": [
+		    { "textEN" : "What is MGF?", "textDE" : "Was ist MGF?" },
+		    { "textEN" : "What is XMP?", "textDE" : "Was ist XMP?" }
+		  ],
+		  "rightAnswers": [
+		    { "textEN" : "What is SAX?", "textDE" : "Was ist SAX?" },
+		    { "textEN" : "What is DOM?", "textDE" : "Was ist DOM?" }
+		  ]
+		},
+		{ "id": 17,
+		  "textEN": "These languages are used to define schemas in XML.",
+        "textDE": "Diese Sprachen eignen sich zur Schemadefinition in XML.",
+		  "value": 20,
+		  "wrongAnswers": [
+		    { "textEN" : "What is XML Definition?", "textDE" : "Was ist XML Definition?" },
+		    { "textEN" : "What is DTD Schema?", "textDE" : "Was ist DTD Schema?" }
+		  ],
+		  "rightAnswers": [
+		    { "textEN" : "What is XML Schema?", "textDE" : "Was ist XML Schema?" },
+		    { "textEN" : "What is Document Type Definition?", "textDE" : "Was ist Document Type Definition?" }
+		  ]
+		},
+        { "id": 18,
+          "textEN": "These languages are used to query JSON.",
+          "textDE": "Diese Sprachen werden zum Abfragen von JSON verwendet.",
+          "value": 20,
+          "wrongAnswers": [
+            {	"textEN" : "What is XSLT?", "textDE" : "Was ist XSLT?" },
+            {	"textEN" : "What is JSON Find?", "textDE" : "Was ist JSON Find?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is JSON Path?", "textDE" : "Was ist JSON Path?" },
+            {	"textEN" : "What is JSON Query?", "textDE" : "Was ist JSON Query?" }
+          ]
+        },
+        { "id": 19,
+          "textEN": "These languages are used to define semi-structured data.",
+          "textDE": "Diese Sprachen eignen sich um semistrukturierte Daten zu definieren",
+          "value": 30,
+          "wrongAnswers": [
+            {	"textEN" : "What is Schema?", "textDE" : "Was ist Schema?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is XML?", "textDE" : "Was ist XML?" },
+            {	"textEN" : "What is JSON?", "textDE" : "Was ist JSON?" },
+            {	"textEN" : "What is YAML?", "textDE" : "Was ist YAML?" }
+          ]
+        },
+        { "id": 20,
+          "textEN": "These are DTD attribute types.",
+          "textDE": "Diese Attributtypen gibt es bei DTDs.",
+          "value": 40,
+          "wrongAnswers": [
+            { "textEN" : "What is BDATA?", "textDE" : "Was ist BDATA?" },
+            { "textEN" : "What is REFERENCE?", "textDE" : "Was ist REFERENCE?" },
+            { "textEN" : "What is ELEMENT?", "textDE" : "Was ist ELEMENT?" }
+          ],
+          "rightAnswers": [
+            { "textEN" : "What is CDATA?", "textDE" : "Was ist CDATA?" },
+            { "textEN" : "What is ENTITY?", "textDE" : "Was ist ENTITY?" },
+            { "textEN" : "What is ID?","textDE" : "Was ist ID?" }
+          ]
+        },
+        { "id": 21,
+          "textEN": "These languages are used to query XML.",
+          "textDE": "Diese Sprachen werden zum Abfragen von XML verwendet",
+          "value": 50,
+          "wrongAnswers": [
+            {	"textEN" : "What is JAQL?", "textDE" : "Was ist JAQL?" }
+          ],
+          "rightAnswers": [ 
+            {	"textEN" : "What is XPath?", "textDE" : "Was ist XPath?" },
+            {	"textEN" : "What is XQuery?", "textDE" : "Was ist XQuery?" },
+            {	"textEN" : "What is XSLT?", "textDE" : "Was ist XSLT?" }
+          ]
+        }
+     ]
+   },
+    { "nameEN": "Internet Technology",
+      "nameDE": "Internet Technologien",
+     "questions": [
+       { "id": 22,
+         "textEN": "These versions of the Internet Protokolls are used today.",
+         "textDE": "Diese Versionen des Internet Protokolls sind heutzutage im Einsatz.",
+         "value": 10,
+         "wrongAnswers": [
+           { "textEN" : "What is IPv9?", "textDE" : "Was ist IPv9?" },
+           { "textEN" : "What is IPv0?", "textDE" : "Was ist IPv0?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is IPv4?", "textDE" : "Was ist IPv4?" },
+           { "textEN" : "What is IPv6?", "textDE" : "Was ist IPv6?" }
+         ]
+       },
+       { "id": 23,
+         "textEN": "These IPv4 addresses are private and are not routed in the internet.",
+         "textDE": "Diese IPv4-Adressen gehören dem privaten Netzbereich an und werden im Internet nicht geroutet.",
+         "value": 20,
+         "wrongAnswers": [
+           { "textEN" : "What is 192.166.2.1?", "textDE" : "Was ist 192.166.2.1?" },
+           { "textEN" : "What is 172.33.250.250?", "textDE" : "Was ist 172.33.250.250?" },
+           { "textEN" : "What is 11.0.0.1?", "textDE" : "Was ist 11.0.0.1?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is 192.168.252.3?", "textDE" : "Was ist 192.168.252.3?" },
+           { "textEN" : "What is 10.0.0.1?", "textDE" : "Was ist 10.0.0.1?" },
+           { "textEN" : "What is 172.31.255.1?", "textDE" : "Was ist 172.31.255.1?" }
+         ]
+       },
+       { "id": 24,
+         "textEN": "These protocols are part of the transport layer.",
+         "textDE": "Diese Protokolle befinden sich in der Transportschicht.",
+         "value": 30,
+         "wrongAnswers": [
+           { "textEN" : "What is IP?", "textDE" : "Was ist IP?" },
+           { "textEN" : "What is PTPP?", "textDE" : "Was ist PTPP?" },
+           { "textEN" : "What is DHCP?", "textDE" : "Was ist DHCP?" },
+           { "textEN" : "What is NTP?", "textDE" : "Was ist NTP?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is TCP?", "textDE" : "Was ist TCP?" },
+           { "textEN" : "What is UDP?", "textDE" : "Was ist UDP?" }
+         ]
+       },
+       { "id": 25,
+         "textEN": "These protocols are part of the application layer.",
+         "textDE": "Diese Protokolle befinden sich in der Applikationsschicht.",
+         "value": 40,
+         "wrongAnswers": [
+           { "textEN" : "What is PTPP?", "textDE" : "Was ist PTPP?" },
+           { "textEN" : "What is UDP?", "textDE" : "Was ist UDP?" },
+           { "textEN" : "What is IP?", "textDE" : "Was ist IP?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is DNS?", "textDE" : "Was ist DNS?" },
+           { "textEN" : "What is FTP?", "textDE" : "Was ist FTP?" },
+           { "textEN" : "What is SOCKS?", "textDE" : "Was ist SOCKS?" },
+           { "textEN" : "What is HTTP?", "textDE" : "Was ist HTTP?" },
+           { "textEN" : "What is SSH?", "textDE" : "Was ist SSH?" }
+         ]
+       },
+       { "id": 26,
+         "textEN": "These protocols are part of the internet layer.",
+         "textDE": "Diese Protokolle befinden sich in der Internetschicht.",
+         "value": 40,
+         "wrongAnswers": [
+           { "textEN" : "What is UDP?", "textDE" : "Was ist UDP?" },
+           { "textEN" : "What is TCP?", "textDE" : "Was ist TCP?" },
+           { "textEN" : "What is FTP?", "textDE" : "Was ist FTP?" },
+           { "textEN" : "What is HTTP?", "textDE" : "Was ist HTTP?" },
+           { "textEN" : "What is SSH?", "textDE" : "Was ist SSH?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is IP?", "textDE" : "Was ist IP?" }
+         ]
+       },
+       { "id": 27,
+         "textEN": "The protocols are part of the link layer.",
+         "textDE": "Diese Protokolle befinden sich in der Netzzugangsschicht.",
+         "value": 50,
+         "wrongAnswers": [
+           { "textEN" : "What is SOCKS?", "textDE" : "Was ist SOCKS?" },
+           { "textEN" : "What is POP?", "textDE" : "Was ist POP?" },
+           { "textEN" : "What is FTP?", "textDE" : "Was ist FTP?" },
+           { "textEN" : "What is IP?", "textDE" : "Was ist IP?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is Ethernet?", "textDE" : "Was ist Ethernet?" },
+           { "textEN" : "What is Token Ring?", "textDE" : "Was ist Token Ring?" }
+         ]
+       },
+       { "id": 28,
+         "textEN": "These layers are defined in the TCP/IP reference model.",
+         "textDE": "Diese Schichten gibt es im TCP/IP-Referenzmodell.",
+         "value": 30,
+         "wrongAnswers": [
+           { "textEN" : "What is the session layer?", "textDE" : "Was ist Sitzung?" },
+           { "textEN" : "What is the bit transfer layer?", "textDE" : "Was ist Bitübertragung?" },
+           { "textEN" : "What is the presentation layer?", "textDE" : "Was ist Darstellung?" },
+           { "textEN" : "What is the connection layer?", "textDE" : "Was ist Vermittlung?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is the application layer?", "textDE" : "Was ist Anwendungen?" },
+           { "textEN" : "What is the internet layer?", "textDE" : "Was ist Internet?" },
+           { "textEN" : "What is the application layer?", "textDE" : "Was ist Netzzugang?" },
+           { "textEN" : "What is the transport layer?", "textDE" : "Was ist Transport?" }
+         ]
+       }
+     ]
+   },
+   { "nameEN": "Internet and Internet usage",
+     "nameDE": "Internet und -verwendung",
+     "questions": [
+       { "id": 29,
+         "textEN": "These countries are part of the top 5 countries with the most internet users.",
+         "textDE": "Diese Länder sind unter den Top 5 mit den meisten Internet-Usern.",
+         "value": 40,
+         "wrongAnswers": [
+           { "textEN" : "What is United Kingdom?", "textDE" : "Was ist United Kingdom?" },
+           { "textEN" : "What is Russia?", "textDE" : "Was ist Russland?" },
+           { "textEN" : "What is Germany?", "textDE" : "Was ist Deutschland?" }
+         ],
+         "rightAnswers": [ // http://www.internetworldstats.com/top20.htm
+           { "textEN" : "What is USA?", "textDE" : "Was ist USA?" },
+           { "textEN" : "What is India?", "textDE" : "Was ist Indien?" },
+           { "textEN" : "What is Japan?", "textDE" : "Was ist Japan?" }
+         ]
+       },
+       { "id": 30,
+         "textEN": "This continent has the most absolute internet users.",
+         "textDE": "Das ist der Kontinent mit den meisten Internet-User in absoluten Zahlen.",
+         "value": 20,
+         "wrongAnswers": [
+           { "textEN" : "What is Europe?", "textDE" : "Was ist Europa?" },
+           { "textEN" : "What is North America?", "textDE" : "Was ist Nord Amerika?" },
+           { "textEN" : "What is Africa?", "textDE" : "Was ist Afrika?" }
+         ],
+         "rightAnswers": [ // http://www.internetworldstats.com/stats.htm
+           { "textEN" : "What is Asia?", "textDE" : "Was ist Asien?" }
+         ]
+       },
+       { "id": 31,
+         "textEN": "This is the most used social network.",
+         "textDE": "Das ist das meist genutzte Social Network.",
+         "value": 10,
+         "wrongAnswers": [
+           { "textEN" : "What is Google+?", "textDE" : "Was ist Google+?" },
+           { "textEN" : "What is Twitter?", "textDE" : "Was ist Twitter?" },
+           { "textEN" : "What is Instagramm?", "textDE" : "Was ist Instagramm?" },
+           { "textEN" : "What is Pinterest?", "textDE" : "Was ist Pinterest?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is Facebook?", "textDE" : "Was ist Facebook?" }
+         ]
+       },
+       { "id": 32,
+         "textEN": "Youtube has around that many users per month.",
+         "textDE": "Youtube hat pro Monat ungefähr so viele Benutzer.",
+         "value": 30,
+         "wrongAnswers": [
+           { "textEN" : "What is over a million?", "textDE" : "Was hat über eine Million?" },
+           { "textEN" : "What is over ten millions?", "textDE" : "Was hat über zehn Millionen?" },
+           { "textEN" : "What is over hundret millions?", "textDE" : "Was hat über hundert Millionen?" }
+         ],
+         "rightAnswers": [ // http://www.youtube.com/yt/press/statistics.html
+           { "textEN" : "What is over a billion?", "textDE" : "Was hat über eine Milliarde?" }
+         ]
+       },
+       { "id": 33,
+         "textEN": "These companies are owned by Facebook.",
+         "textDE": "Diese Unternehmen gehören zu Facebook gehören.",
+         "value": 40,
+         "wrongAnswers": [
+           { "textEN" : "What is Pinterest?", "textDE" : "Was ist Pinterest?" },
+           { "textEN" : "What is Twitter?", "textDE" : "Was ist Twitter?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "What is Instagramm?", "textDE" : "Was ist Instagramm?" },
+           { "textEN" : "What is WhatsApp?", "textDE" : "Was ist WhatsApp?" }
+         ]
+       },
+       { "id": 34,
+         "textEN": "These people (co-)founded Google.",
+         "textDE": "Diese Personen haben Google (mit-)begründet.",
+         "value": 50,
+         "wrongAnswers": [
+           { "textEN" : "Who is Eric Schmidt?", "textDE" : "Wer ist Eric Schmidt?" },
+           { "textEN" : "Who is Dustin Moskovitz?", "textDE" : "Wer ist Dustin Moskovitz?" },
+           { "textEN" : "Who is Andrew McCollum?", "textDE" : "Wer ist Andrew McCollum?" },
+           { "textEN" : "Who is Mark Zuckerberg?", "textDE" : "Wer ist Mark Zuckerberg?" }
+         ],
+         "rightAnswers": [
+           { "textEN" : "Who is Larry Page?", "textDE" : "Wer ist Larry Page?" },
+           { "textEN" : "Who is Sergey Brin?", "textDE" : "Wer ist Sergey Brin?" }
+         ]
+       },
+       { "id": 35,
+        "textEN": "These is the percentage of households in Austria which have broadband internet access.",
+        "textDE": "Der Anteil an Haushalten in Österreich, die Breitband-Internetzugang haben.",
+        "value": 30,
+        "wrongAnswers": [
+          { "textEN" : "What is 50\% - 75\%?", "textDE" : "Was ist 50\% - 75\%?" },
+          { "textEN" : "What is 0\% - 50\%?", "textDE" : "Was ist 0\% - 50\%?" },
+          { "textEN" : "What is 85\%+?", "textDE" : "Was ist 85\%+?" }
+        ],
+        "rightAnswers": [ //http://www.statistik.at/web_en/statistics/information_society/ict_usage_in_households/041018.html
+          { "textEN" : "What is 75\% - 85\%?", "textDE" : "Was ist 75\% - 85\%?" }
+        ]
+      }
+     ]
+   }
+]

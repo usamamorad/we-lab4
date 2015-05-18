@@ -1,0 +1,200 @@
+@charset "utf-8";
+
+/***************************************
+ * Color Reference:
+ *   Body BG (Gradient Start): #FFFFFF
+ *   Body BG (Gradient End):   #D3D8E8
+ *   Purple BG:                #36528F
+ *   Purple Border:            #172B57
+ *   Orange BG:                #FC7800
+ *   Orange Border:            #784600 
+ *   Green BG:                 #36D344
+ *   Green Border:             #116D01 
+ *   Big Blue:                 #006BAC
+ *   Input Border:             #03345F
+ *   Error Red:                #E60808
+ *   Positive Green:           #029902
+ *   Button Disabled Border:   #565656
+ *   Button Disabled BG:       #CCCCCC
+ *   Input Disabled Border:    #5C5F63
+ *   Input Disabled BG:        #D3D8E3
+ *   Input Disabled Text:      #929396
+ *   Light Gray Background:    #FDFDFD
+ *   Middle Gray Background:   #FBFBFB
+ ***************************************/
+
+/***********************************
+ * Reset
+ ***********************************/ 
+
+* {
+   margin: 0;
+   padding: 0;
+}
+
+img {
+   border: none;
+}
+ 
+/***********************************
+ * General Rules
+ ***********************************/
+
+* {
+   font-size: 100%;
+   line-height: 1.5em;
+} 
+ 
+.accessibility {
+   position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;
+}
+
+.hide{
+   display:none;
+}
+
+.left {
+   float: left;
+}
+
+.right {
+   float: right;
+}
+
+.clear {
+   clear: both;
+}
+
+.clickable {
+   cursor: pointer;
+}
+
+.black {
+   color: #000;
+}
+
+/***********************************
+ * Basic Structure
+ ***********************************/
+
+body {
+   font-size: 100%;
+   padding: 0;
+   line-height: 1.5em;
+	font: 100% "Trebuchet MS", Arial, Helvetica, Clear, sans-serif;
+   margin: 0; 
+   padding: 0;
+   text-align: left;
+   background: linear-gradient(#FFFFFF, #D3D8E8) 0% 0%;
+   background-repeat: no-repeat;
+   background-position: center top;
+   background-color: #D3D8E8;   
+   color: #000;
+   display:block;
+   min-width:20em;
+}
+
+/***********************************
+ * Header
+ ***********************************/
+
+h1#bannerheading {
+   margin: 0;
+   width:inherit;
+   min-height: 47px;
+   padding: 10px 0 0 70px;
+   background-image: url(../images/big-logo-small.png);
+   background-position:left 0.5em top 5px;
+   background-repeat:no-repeat;
+   display: block;
+   float: left;
+	color: #FFFFFF;
+}
+
+h1#bannerheading .gametitle {
+   font-size: 1.5em;
+}
+
+/***********************************
+ * Navigation
+ ***********************************/
+
+nav {
+    background: linear-gradient(#36528F, #29447D) 0% 0%;
+    color: #fff;
+    padding: 0ex 0em 0ex 1em;
+    min-height: 57px;
+    border-bottom: 1px solid #172B57;
+    margin-bottom: 1em;
+}
+
+nav ul {
+	margin: 0;
+   float: right;
+   height: 100%;
+	margin: 2.2ex 2ex 0 0;
+   padding: 0;
+}
+
+nav ul li {
+   list-style: none;
+}
+
+.orangelink {
+   background: linear-gradient(#FC7800, #E66D00) 0% 0%;
+   border: 0.15ex solid #784600;
+   font-weight: bold;
+   text-align: center;
+   text-decoration: none;
+   color: #fff;
+}
+
+.orangelink:hover {
+   background-image: none;
+   background-color: #FC7800;
+}
+
+.greenlink {
+   background: linear-gradient(#36D344, #21B52E) 0% 0%;
+   border: 0.15ex solid #116D01;
+   font-weight: bold;
+   text-align: center;
+   color: #fff;
+}
+
+.greenlink:hover {
+   background-image: none;
+   background-color: #36D344;
+}
+
+.formlink,
+.contentlink,
+.navigationlink {
+   padding: 0.25em 2.5em 0.25em 2.5em;
+}
+
+@media screen and ( max-width:32em ){
+   .contentlink,
+   .formlink {
+      padding: 0.5em 0em 0.5em 0em;
+      display: block;
+      width: 98%;
+      margin: 0 1% 0 1%;
+   }
+   
+   .navigationlink {
+      padding: 0.25em 0.5em;
+   }
+}
+
+/***********************************
+ * Footer
+ ***********************************/
+ 
+footer {
+   margin-top: 2em;
+   clear: both;
+   text-align: center;
+}

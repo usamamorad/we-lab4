@@ -1,0 +1,36 @@
+@(bodyId: String, title: String, accessibilityMenu: Html = Html(""))(content: Html)(scripts: Html = Html(""))
+@import play.i18n._
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Business Informatics Group Jeopardy! - @title</title>
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/base.css")" />
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/screen.css")" />
+        <script src="@routes.Assets.at("javascripts/jquery.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/framework.js")" type="text/javascript"></script>
+    </head>
+    <body id="@bodyId">
+		@accessibilityMenu
+		<!-- Header -->
+		<header role="banner" aria-labelledby="bannerheading">
+		   <h1 id="bannerheading">
+		      <span class="accessibility">Business Informatics Group </span><span class="gametitle">Jeopardy!</span>
+		   </h1>
+		</header>
+		
+		<!-- Navigation -->
+		@nav(bodyId)
+		
+		    
+		<!-- Content -->
+		@content
+	
+		<!-- Footer -->
+	    <footer role="contentinfo">© 2015 BIG Jeopardy</footer>
+	    @scripts
+    </body>
+</html>

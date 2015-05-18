@@ -1,0 +1,36 @@
+@(field: Field, args: (Symbol,Any)*)
+@import play.i18n._
+    
+    @inputType = @{ args.toMap.get('type).map(_.toString).getOrElse("text") }
+    @label = @{ args.toMap.get('label).map(_.toString).getOrElse(field.id) }
+    @name = @{ args.toMap.get('name).map(_.toString).getOrElse(field.id) }
+    @value = @{ args.toMap.get('value).map(_.toString).getOrElse(field.value.getOrElse("")) }
+	@after = @{ args.toMap.exists(_._1 == 'after) }
+
+    @htmlArgs = @{args.filter(_._1 != 'labelAfter).filter(_._1 != 'type).filter(_._1 != 'label).filter(_._1 != 'name).toMap}
+    
+    @_label = {<label for="@label">@Messages.get("label." + field.id)</label>}
+	@_input = {<input type="@inputType" name="@name" id="@field.id" value="@value" @toHtmlArgs(htmlArgs) />}
+	
+	@if(after) {
+	 @_input
+	 @_label
+	} else {
+	 @_label
+	 @_input
+	}
+	
+	@***** Error Message für die Javascript validation *****@
+	<div id="error_msg_@field.id" class="hide" role="alert"> 	   	
+        @Messages.get( "error." + field.id )
+    </div>
+    
+    
+    @***** Error Message von der Server validation *****@
+	@if(field.hasErrors){
+    	<div id="error_msg_@(field.id)_from_server" role="alert">
+    		@for(error <- field.errors) {
+			    <p>@Messages.get( error.message, error.args )</p>
+			}
+    	</div>
+    }  

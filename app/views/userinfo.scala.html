@@ -1,0 +1,7 @@
+@(player: models.Player, human: Boolean, msgHuman: String, msgComputer: String, msgCorrect: String, msgWrong: String) 
+	@if(player.getLatestProfitChange() != null) {
+		<p class="user-info @if(player.getLatestProfitChange() > 0){positive-change}else{negative-change}">
+		@if(human) {@msgHuman} else {@player.getUser().getName() @msgComputer}
+		@if(player.getLatestProfitChange() > 0){@msgCorrect}else{@msgWrong}: @if(player.getLatestProfitChange() > 0) {+}@player.getLatestProfitChange() €
+		</p>
+	}

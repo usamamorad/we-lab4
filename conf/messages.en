@@ -1,0 +1,100 @@
+next=Next
+
+error.required=Field Input is required.
+error.form=Error inside form
+error.login=Invalid user or password
+error.futuredate = Birthdate can not be in the future
+error.userexists = Username already exists
+error.invaliddate = Please use date format MM/DD/YYYY
+
+error.userName=Please enter a valid user name (4 to 8 characters)
+error.password=Please enter a valid password (4 to 8 characters)
+error.birthdate=Please enter a valid date ("MM/DD/YYYY")
+
+user.created-successfully=The user was successfully created.
+
+error.maxLength=Maximum length is {0}.
+error.minLength=Minimal length is {0}.
+
+error.invalid.target.birthDate=Please enter a valid date ("MM/DD/YYYY")
+error.invalid.birthDate=Please enter a valid date ("MM/DD/YYYY")
+error.invalid.java.util.Date=Please enter a valid date ("MM/DD/YYYY")
+error.invalid=Please enter a valid date ("MM/DD/YYYY")
+
+label.userName=Username*
+label.password=Password*
+label.firstName=First Name
+label.lastName=Last Name
+label.gender=Gender
+label.birthDate=Birthdate
+label.male=Male
+label.female=Female
+form.requiredhint=Fields marked with "*" are required
+
+auth.gotoreg=Go to registration
+auth.regquestion=No Account?
+auth.login=Login
+auth.registerheading=Registration
+
+acc.auth=Jump to Login
+acc.quiz=Jump to Question
+acc.quizover=Jump to final game score
+acc.registration=Jump to Registration
+acc.roundover=Jump to round score
+acc.questionselection=Question selection
+
+nav.login=Login
+nav.altlogin=Click here to log in
+nav.logout=Log out
+nav.altlogout=Click here to log out
+nav.register=Register
+nav.altregister=Click here to register
+
+index.start=Start Quiz
+
+register.heading=Registration
+register.personallegend=Personal Data
+register.loginlegend=Login Data
+
+roundover.heading=Current round score
+roundover.winmessage=wins round
+
+quiz.category=Category
+quiz.question=Question
+quiz.timeleft=Remaining time
+quiz.lastgameinfo=Last game info
+quiz.lastgame=Last game
+quiz.never=Never
+
+quizover.score=Final score
+quizover.wins=wins!
+quizover.info=Player Information
+quizover.wonround=Won rounds
+quizover.newgame=New game
+
+info.unknown=unknown
+info.correct=Correct
+info.incorrect=Incorrect
+info.heading=Player Information
+info.question=Question
+
+gameinfo.you=You
+gameinfo.playername=Player name
+gameinfo.playerscore=Player score
+gameinfo.leader=Winner
+gameinfo.secondplayer=Second player
+gameinfo.questions=Questions
+
+userinfo.human=You have answered
+userinfo.computer=has answered
+userinfo.correct=correctly
+userinfo.wrong=wrong
+
+jeopardy.question={0} has chosen {1} for {2} €
+
+jeopardy.has=has
+jeopardy.chosen1=chosen
+jeopardy.chosen2=
+jeopardy.for=for
+jeopardy.choose=choose
+jeopardy.answer=answer

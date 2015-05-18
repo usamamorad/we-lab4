@@ -1,0 +1,5 @@
+@(field: Field, args: (Symbol,Any)*)
+@import play.i18n._
+
+<input type="radio" name="@field.id" id="@field.id" @toHtmlArgs(args.toMap) />
+<label for="@field.id">@Messages.get("label." + field.id)</label>

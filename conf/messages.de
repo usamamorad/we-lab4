@@ -1,0 +1,98 @@
+next=Weiter
+
+error.required=Eingabe für dieses Feld verpflichtend.
+error.form=Fehler im Formular
+error.login=Ungültiger Benutzername oder Passwort
+error.futuredate = Das Geburtsdatum darf nicht in der Zukunft liegen
+error.userexists = Der Benutzername ist schon in Verwendung
+error.invaliddate = Bitte verwenden Sie ein Datum der Form TT.MM.JJJJ
+
+error.userName=Bitte gültigen Usernamen eingeben (4 bis 8 Zeichen)
+error.password=Bitte gültiges Passwort eingeben (4 bis 8 Zeichen)
+error.birthdate=Bitte gültiges Datum angeben ("TT.MM.JJJJ")
+
+error.maxLength=Maximale Länge ist {0}.
+error.minLength=Minimale Länge ist {0}.
+
+error.invalid.target.birthDate=Bitte gültiges Datum angeben ("TT.MM.JJJJ")
+error.invalid.birthDate=Bitte gültiges Datum angeben ("TT.MM.JJJJ")
+error.invalid.java.util.Date=Bitte gültiges Datum angeben ("TT.MM.JJJJ")
+error.invalid=Bitte gültiges Datum angeben ("TT.MM.JJJJ")
+
+user.created-successfully=Der Benutzer wurde erfolgreich angelegt.
+
+label.userName=Benutzername*
+label.password=Passwort*
+label.firstName=Vorname
+label.lastName=Nachname
+label.gender=Geschlecht
+label.birthDate=Geburtsdatum
+label.male=Männlich
+label.female=Weiblich
+
+form.requiredhint=Mit "*" gekennzeichnete Felder sind Pflichtfelder
+
+auth.gotoreg=Zur Registrierung
+auth.regquestion=Nicht registriert?
+auth.login=Anmelden
+auth.registerheading=Registrierung
+
+acc.auth=Zum Login springen
+acc.quiz=Zur Frage springen
+acc.quizover=Zur Spielwertung springen
+acc.registration=Zur Registrierung springen
+acc.roundover=Zur Rundenwertung springen
+acc.questionselection=Fragenauswahl
+
+nav.login=Anmelden
+nav.altlogin=Klicke hier um dich anzumelden
+nav.logout=Abmelden
+nav.altlogout=Klicke hier um dich abzumelden
+nav.register=Registrieren
+nav.altregister=Klicke hier um dich zu registrieren
+
+index.start=Quiz starten
+
+register.heading=Registrierung
+register.personallegend=Persönliche Daten
+register.loginlegend=Login Daten
+
+quiz.category=Kategorie
+quiz.question=Frage
+quiz.timeleft=Verbleibende Zeit
+quiz.lastgameinfo=Letztes Spielinfo
+quiz.lastgame=Letztes Spiel
+quiz.never=Nie
+
+quizover.score=Endstand
+quizover.wins=gewinnt!
+quizover.info=Spielerinformationen
+quizover.wonround=Gewonnene Runden
+quizover.newgame=Neues Spiel
+
+info.unknown=Unbekannt
+info.correct=Richtig
+info.incorrect=Falsch
+info.heading=Spielerinformationen
+info.question=Frage
+
+gameinfo.you=Du
+gameinfo.playername=Spielername
+gameinfo.playerscore=Spielerpunkte
+gameinfo.leader=Gewinner
+gameinfo.secondplayer=Zweiter Spieler
+gameinfo.questions=Fragen
+
+userinfo.human=Deine Antwort war
+userinfo.computer=Antwort war
+userinfo.correct=richtig
+userinfo.wrong=falsch
+
+jeopardy.question={0} hat {1} für {2} € gewählt
+
+jeopardy.has=hat
+jeopardy.chosen1=
+jeopardy.chosen2=gewählt
+jeopardy.for=für
+jeopardy.choose=wählen
+jeopardy.answer=antworten

@@ -1,0 +1,67 @@
+@(leader: models.Player, second: models.Player, totalQuestions: Int, leaderYou: Boolean)
+@import play.i18n._
+
+
+@askedQuestions = @{leader.getAnsweredQuestions().size()}
+@gameOver = @{askedQuestions == totalQuestions}
+
+@state = {@if(gameOver){winner}else{game}}
+@leaderId = {@if(gameOver){winnerannouncement}else{firstplayerheading}}
+@loserId = {@if(gameOver){loserheading}else{secondplayerheading}}
+
+@img(player: models.Player, full: Boolean) = @{
+	if(gameOver && full){
+		player.getUser().getAvatar().getImageFull()
+	} else {
+		player.getUser().getAvatar().getImageHead()
+	}
+}
+@avatar(player: models.Player, full: Boolean = false) = {
+	<img class="avatar" src="/assets/images/avatar/@img(player, full)"
+		 alt="Avatar @player.getUser().getAvatar().getName()" />
+}
+
+@if(gameOver){
+	@userinfo(leader, leaderYou, Messages.get("userinfo.human"), Messages.get("userinfo.computer"), Messages.get("userinfo.correct"), Messages.get("userinfo.wrong"))
+	@userinfo(second, !leaderYou, Messages.get("userinfo.human"), Messages.get("userinfo.computer"), Messages.get("userinfo.correct"), Messages.get("userinfo.wrong"))
+}
+
+<section id="gameinfo" aria-labelledby="gameinfoheading">
+   <h2 id="@(state)infoheading" class="accessibility">@Messages.get("gameinfo.accessibility." + state)</h2>
+   
+   <section @if(!gameOver){id="firstplayer"} class="playerinfo leader" aria-labelledby="@leaderId">
+      <h3 id="@leaderId" @if(!gameOver){class="accessibility"}>
+      	@Messages.get("gameinfo.leader"): @leader.getUser().getName()
+      </h3>
+      @avatar(leader, true)
+      <table>
+         <tr>
+            <th class="accessibility">@Messages.get("gameinfo.playername")</th>
+            <td class="playername">@leader.getUser().getName()@if(leaderYou){ (@Messages.get("gameinfo.you"))}</td>
+         </tr>
+         <tr>
+            <th class="accessibility">@Messages.get("gameinfo.playerscore")</th>
+            <td class="playerpoints">@leader.getProfit() €</td>
+         </tr>
+      </table>
+   </section>
+   <section @if(!gameOver){id="secondplayer"} class="playerinfo" aria-labelledby="@loserId">
+      <h3 id="@loserId" class="accessibility">@Messages.get("gameinfo.secondplayer")</h3>
+      @avatar(second)
+      <table>
+         <tr>
+            <th class="accessibility">@Messages.get("gameinfo.playername")</th>
+            <td class="playername">@second.getUser().getName()@if(!leaderYou){ (@Messages.get("gameinfo.you"))}</td>
+         </tr>
+         <tr>
+            <th class="accessibility">@Messages.get("gameinfo.playerscore")</th>
+            <td class="playerpoints">@second.getProfit() €</td>
+         </tr>
+      </table>
+   </section>
+   
+   @if(askedQuestions > 0 && !gameOver) {
+   	<p id="round">@Messages.get("gameinfo.questions"): @askedQuestions / @totalQuestions</p>
+   }
+   
+</section>

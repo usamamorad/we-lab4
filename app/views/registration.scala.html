@@ -1,0 +1,76 @@
+@(myForm : play.data.Form[JeopardyUser])
+@import play.i18n._
+@import helper._
+
+@main("register-page", "registration") {
+	<div id="register" role="main"> 
+		<!-- Register section -->
+		<h2 id="registerheading" class="accessibility">@Messages.get("register.heading")</h2>
+		@helper.form(action = routes.Registration.create) {
+			<fieldset>
+				<legend>@Messages.get("register.personallegend")</legend>
+				@inputField(myForm("firstName"))
+				@inputField(myForm("lastName"))
+				@inputField(myForm("birthDate"), 'type -> "date")
+				<label>@Messages.get("label.gender"):</label>
+				<fieldset class="inputset">
+					@inputField(myForm("male"), 'type -> "radio", 'value -> "male", 'name -> "gender", 'checked -> "checked", 'after -> "")
+					@inputField(myForm("female"), 'type -> "radio", 'value -> "female", 'name -> "gender", 'after -> "")
+				</fieldset>
+			</fieldset>
+			<fieldset>
+				<legend>@Messages.get("register.loginlegend")</legend>
+				<label for="avatar">Avatar:</label>
+				<select id="avatar" name="avatar">
+					<option value="ALDRICH_KILLIAN">Aldrich Killian</option>
+					<option value="BEETLE">Beetle</option>
+					<option value="BLACK_WIDOW">Black Widow</option>
+					<option value="CAPTAIN_AMERICA">Captain America</option>
+					<option value="CYCLOPS">Cyclops</option>
+					<option value="DEADPOOL">Deadpool</option>
+					<option value="DOCTOR_DOOM">Doctor Doom</option>
+					<option value="DOCTOR_OCTOPUS">Doctor Octopus</option>
+					<option value="DRAX">Drax</option>
+					<option value="ELECTRO">Electro</option>
+					<option value="EXTREMIS_SOLDIER">Extremis Soldier</option>
+					<option value="FALCON">Falcon</option>
+					<option value="GAMORA">Gamora</option>
+					<option value="GREEN_GOBLIN">Green Goblin</option>
+					<option value="GROOT">Groot</option>
+					<option value="HAWKEYE">Hawkeye</option>
+					<option value="HULK">Hulk</option>
+					<option value="HYDRA_HENCHMAN">Hydra Henchman</option>
+					<option value="IRON_FIST">Iron Fist</option>
+					<option value="IRON_MAN">Iron Man</option>
+					<option value="J_JONAH_JAMESON">J. Jonah Jameson</option>
+					<option value="LOKI">Loki</option>
+					<option value="MAGNETO">Magneto</option>
+					<option value="MARY_JANE_WATSON">Mary Jane Watson</option>
+					<option value="MODOK">MODOK</option>
+					<option value="NEBULA">Nebula</option>
+					<option value="NICK_FURY">Nick Fury</option>
+					<option value="NOVA">Nova</option>
+					<option value="PEPPER_POTTS">Pepper Potts</option>
+					<option value="POWER_MAN">Power Man</option>
+					<option value="RED_SKULL">Red Skull</option>
+					<option value="ROCKET_RACCOON">Rocket Raccoon</option>
+					<option value="RONAN">Ronan</option>
+					<option value="SPIDERMAN">Spiderman</option>
+					<option value="STARLORD">Starlord</option>
+					<option value="Taskmaster">Taskmaster</option>
+					<option value="THE_MANDARIN">The Mandarin</option>
+					<option value="THOR">Thor</option>
+					<option value="TONY_STARK">Tony Stark</option>
+					<option value="VENOM">Venom</option>
+					<option value="WAR_MACHINE">War Machine</option>
+					<option value="WOLVERINE">Wolverine</option>
+				</select>
+				@inputField(myForm("userName"))
+				@inputField(myForm("password"), 'type -> "password")
+				<input class="greenlink formlink" type="submit" value="   @Messages.get("nav.register")" accesskey="s"/>
+				<p id="requiredhint">@Messages.get("form.requiredhint")</p>
+			</fieldset>
+		}
+	</div>
+} {
+}
