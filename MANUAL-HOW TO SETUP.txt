@@ -4,12 +4,12 @@
 4: create intelliJ idea files with command "idea"
 5: exit activator with command "exit"
 6: (optional) run activator with command "activator ~run"
-7: import directory with intelliJ. you will get the following message:
+7: open directory with File->open in intelliJ. you will get the following message:
 
-"The project 'we15-lab4' has an older format and will be converted. You may not be able to open the project with earlier versions of IntelliJ IDEA. Details...  Old versions of project files will be saved to: 'D:\TU Wien\Web Engineering\UE4-Angabe\we15-lab4\projectFilesBackup'"
+"The project 'we-lab4' has an older format and will be converted. You may not be able to open the project with earlier versions of IntelliJ IDEA. Details...  Old versions of project files will be saved to: 'D:\TU Wien\Web Engineering\UE4-Angabe\we15-lab4\projectFilesBackup'"
 
 8: click CONVERT
-9: intelliJ will ask you to add files to the repo, click NO.
+9: intelliJ will ask you to add files to the repo, click "cancel".
 10: delete the Folder "projectFilesBackup"
 11: git status must now be clean.
 
