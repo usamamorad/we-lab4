@@ -22,7 +22,7 @@ public class Category extends BaseEntity {
 
 
     //A list of questions in this category
-    @OneToMany(cascade= CascadeType.ALL, fetch= FetchType.LAZY, mappedBy = "category")
+    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "category")
     private List<Question> questions = new ArrayList<Question>();
     
     /**

@@ -20,7 +20,7 @@ public class Question extends BaseEntity {
     private Category category;
 
     //A list of right choices in this category
-    @OneToMany(cascade= CascadeType.ALL, fetch= FetchType.LAZY, mappedBy ="question")
+    @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER, mappedBy ="question")
     private List<Answer> answers = new ArrayList<Answer>();
 
 
