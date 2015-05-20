@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 /**
  * Represents a question, which is stored in the DB
  */
+@Entity
 public class Question extends BaseEntity {
 
     private String textDE;
@@ -14,10 +16,11 @@ public class Question extends BaseEntity {
     private int value;
 
     //The category to which this question belongs to
+    @ManyToOne(cascade= CascadeType.ALL)
     private Category category;
 
-
     //A list of right choices in this category
+    @OneToMany(cascade= CascadeType.ALL, fetch= FetchType.LAZY, mappedBy ="question")
     private List<Answer> answers = new ArrayList<Answer>();
 
 
@@ -134,4 +137,6 @@ public class Question extends BaseEntity {
     	Collections.shuffle(answers);
     	return answers;
     }
+
+
 }

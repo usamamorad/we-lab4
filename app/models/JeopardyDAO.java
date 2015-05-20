@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import net.sf.ehcache.ObjectExistsException;
 import play.db.jpa.JPA;
 
 /**
@@ -57,8 +58,58 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public void persist(BaseEntity entity) {
-        // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+
+        if(entity instanceof Category){
+            if(entity.getId() == null){
+                em().persist(((Category)entity));
+            }else{
+                if(em().find(Category.class, entity.getId())==null){
+                    em().persist(((Category)entity));
+                }else{
+                    throw new ObjectExistsException("category already exists");
+                }
+            }
+
+        }
+        else if(entity instanceof Answer){
+            if(entity.getId() == null){
+                em().persist(((Answer)entity));
+            }else{
+                if(em().find(Answer.class, entity.getId())==null){
+                    em().persist(((Answer)entity));
+                }else{
+                    throw new ObjectExistsException("answer already exists");
+                }
+            }
+
+        }
+        else if(entity instanceof Question){
+            if(entity.getId() == null){
+                em().persist(((Question)entity));
+            }else{
+                if(em().find(Category.class, entity.getId())==null){
+                    em().persist(((Question)entity));
+                }else{
+                    throw new ObjectExistsException("question already exists");
+                }
+            }
+
+        }else if(entity instanceof JeopardyUser){
+            if(entity.getId() == null){
+                em().persist(((JeopardyUser)entity));
+            }else{
+                if(em().find(JeopardyUser.class, entity.getId())==null){
+                    em().persist(((JeopardyUser)entity));
+                }else{
+                    throw new ObjectExistsException("category already exists");
+                }
+            }
+
+        }else{
+            throw new IllegalArgumentException("this Object is not valid");
+        }
+
+        //throw new UnsupportedOperationException("Not yet implemented.");
     }
 
 
@@ -84,8 +135,8 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public <T extends BaseEntity> T findEntity(Long id, Class<T> entityClazz) {
-        // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+
+        return em().find(entityClazz, id);
     }
 
 
@@ -98,8 +149,14 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public <E extends BaseEntity> List<E> findEntities(Class<E> entityClazz) {
-        // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+        String queryStr = "SELECT e from "+entityClazz.getName()+" e";
+        TypedQuery<E> query = em().createQuery(queryStr, entityClazz);
+        List<E> list = query.getResultList();
+        if (list.isEmpty()) {
+            return list;
+        } else {
+            return list;
+        }
     }
 
     /**
