@@ -24,7 +24,15 @@ public class Category extends BaseEntity {
     //A list of questions in this category
     @OneToMany(cascade= CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "category")
     private List<Question> questions = new ArrayList<Question>();
-    
+
+    public Category(){
+
+    }
+    public Category(String name , ArrayList<Question> questions, String lang){
+        setQuestions(questions);
+        setName(name, lang);
+    }
+
     /**
      * Add a new question to the category
      * @param question

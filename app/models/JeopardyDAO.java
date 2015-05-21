@@ -57,59 +57,14 @@ public class JeopardyDAO implements IGameDAO {
      * @return
      */
     @Override
-    public void persist(BaseEntity entity) {
-
-        if(entity instanceof Category){
-            if(entity.getId() == null){
-                em().persist(((Category)entity));
-            }else{
-                if(em().find(Category.class, entity.getId())==null){
-                    em().persist(((Category)entity));
-                }else{
-                    throw new ObjectExistsException("category already exists");
-                }
-            }
-
-        }
-        else if(entity instanceof Answer){
-            if(entity.getId() == null){
-                em().persist(((Answer)entity));
-            }else{
-                if(em().find(Answer.class, entity.getId())==null){
-                    em().persist(((Answer)entity));
-                }else{
-                    throw new ObjectExistsException("answer already exists");
-                }
-            }
-
-        }
-        else if(entity instanceof Question){
-            if(entity.getId() == null){
-                em().persist(((Question)entity));
-            }else{
-                if(em().find(Category.class, entity.getId())==null){
-                    em().persist(((Question)entity));
-                }else{
-                    throw new ObjectExistsException("question already exists");
-                }
-            }
-
-        }else if(entity instanceof JeopardyUser){
-            if(entity.getId() == null){
-                em().persist(((JeopardyUser)entity));
-            }else{
-                if(em().find(JeopardyUser.class, entity.getId())==null){
-                    em().persist(((JeopardyUser)entity));
-                }else{
-                    throw new ObjectExistsException("category already exists");
-                }
-            }
-
+    public void persist(BaseEntity entity) throws NullPointerException{
+        if(entity != null){
+            //@TODO: throw error if entity already exists
+            em().persist(entity);
         }else{
-            throw new IllegalArgumentException("this Object is not valid");
+            throw new NullPointerException("Entity is null!");
         }
 
-        //throw new UnsupportedOperationException("Not yet implemented.");
     }
 
 
@@ -135,7 +90,6 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public <T extends BaseEntity> T findEntity(Long id, Class<T> entityClazz) {
-
         return em().find(entityClazz, id);
     }
 
