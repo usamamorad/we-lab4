@@ -1,10 +1,6 @@
 package controllers;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 import models.Category;
 import models.JeopardyDAO;
@@ -22,6 +18,7 @@ import play.mvc.Security;
 import views.html.jeopardy;
 import views.html.question;
 import views.html.winner;
+import twitter.*;
 
 @Security.Authenticated(Secured.class)
 public class GameController extends Controller {
@@ -99,6 +96,7 @@ public class GameController extends Controller {
 			return ok(question.render(game));
 		} else if(game.isGameOver()) {
 			Logger.info("[" + request().username() + "] Game over... redirect");
+
 			return ok(winner.render(game));
 		}			
 		return ok(jeopardy.render(game));
@@ -155,8 +153,28 @@ public class GameController extends Controller {
 		JeopardyGame game = cachedGame(request().username());
 		if(game == null || !game.isGameOver())
 			return redirect(routes.GameController.playGame());
-		
+
+		Logger.info("**************tweeting now...");
+		tweetResult(game);
+
 		Logger.info("[" + request().username() + "] Game over.");		
 		return ok(winner.render(game));
+	}
+
+
+	private static void tweetResult(JeopardyGame game){
+		Logger.info("************I entered the tweet method()");
+		String from = game.getWinner().getUser().getName();
+		Date date = new Date();
+		String uuid = "DummyUUID";
+		TwitterStatusMessage message = new TwitterStatusMessage(from,uuid,date);
+
+		try{
+		TwitterClient twitterClient = new TwitterClient();
+		twitterClient.publishUuid(message);
+		}catch(Exception e){
+			Logger.error("failed to publish tweet : " + e.getMessage());
+		}
+
 	}
 }
