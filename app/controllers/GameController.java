@@ -248,8 +248,8 @@ public class GameController extends Controller {
 	 * @return the computer parameter congigurated with rational assumptions
 	 */
 	private static UserType configMarvinUserType(JeopardyGame game, UserType pc) {
-		pc.setFirstName("Ana-Maria");
-		pc.setLastName("Patrascu");
+		pc.setFirstName(game.getMarvinPlayer().getUser().getFirstName());
+		pc.setLastName(game.getMarvinPlayer().getUser().getLastName());
 		pc.setPassword("");
 		if(game.getWinner() == game.getMarvinPlayer()) {
 			pc.setPoints(game.getWinner().getProfit());
