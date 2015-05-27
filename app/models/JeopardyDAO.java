@@ -3,6 +3,7 @@ package models;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 import javax.persistence.TypedQuery;
 
 import net.sf.ehcache.ObjectExistsException;
@@ -59,8 +60,9 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public void persist(BaseEntity entity) throws NullPointerException{
         if(entity != null){
-            //@TODO: throw error if entity already exists
-            em().persist(entity);
+            if(findById(entity.getId())==null){
+                     em().persist(entity);
+            }else {throw new PersistenceException("Entity is already stored in the DB");}
         }else{
             throw new NullPointerException("Entity is null!");
         }
