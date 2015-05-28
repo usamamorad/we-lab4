@@ -60,10 +60,10 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public void persist(BaseEntity entity) throws NullPointerException{
         if(entity != null){
-            if(findById(entity.getId())==null){
-                     em().persist(entity);
-            }else {throw new PersistenceException("Entity is already stored in the DB");}
-        }else{
+            //TODO: finish implementation
+
+                     em().persist(entity);}
+           else{
             throw new NullPointerException("Entity is null!");
         }
 
