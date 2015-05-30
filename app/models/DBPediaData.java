@@ -9,9 +9,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.sparql.vocabulary.FOAF;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
-import play.Logger;
 
-import java.util.List;
 import java.util.Locale;
 
 public class DBPediaData{
@@ -26,22 +24,99 @@ public class DBPediaData{
                 .addWrongChoicesDE(DBPediaService.getResourceNames(wrongChoices, "de"));
     }
 
-    //TODO: Erweitern um 4 andere DBPedia Fragen
+    public static Question getQuestionWhichArtistHasEmmyAward(Category category, int value){
 
-    public static Question getQuestionActorsFromDBPedia(Category category){
+        String germanQuestionText = "Welche der folgenden Künstler haben schon einen Emmy Award?";
+        String englishQuestionText = "Which of the following artists already has a Emmy Award?";
+
+        Resource award = DBPediaService.loadStatements(DBPedia.createResource("Emmy_Award"));
+
+        SelectQueryBuilder queryBuilder = DBPediaService.createQueryBuilder()
+                .setLimit(4)
+                .addWhereClause(RDF.type, DBPediaOWL.Person)
+                .addPredicateExistsClause(FOAF.name)
+                .addPredicateExistsClause(DBPediaOWL.award)
+                .addWhereClause(DBPediaOWL.award, award)
+                .addFilterClause(RDFS.label, Locale.GERMAN)
+                .addFilterClause(RDFS.label, Locale.ENGLISH);
+
+        Model ArtistsWithAward = DBPediaService.loadStatements(queryBuilder.toQueryString());
+
+        queryBuilder.removeWhereClause(DBPediaOWL.award, award);
+        queryBuilder.addMinusClause(DBPediaOWL.award, award);
+
+        Model noArtistsWithAward = DBPediaService.loadStatements(queryBuilder.toQueryString());
+
+        QuestionBuilder questionBuilder = buildQuestion(
+                category,
+                englishQuestionText,
+                germanQuestionText,
+                ArtistsWithAward,
+                noArtistsWithAward);
+
+        Question question = questionBuilder.createQuestion();
+        question.setValue(value);
+
+        return question;
+
+    }
+
+    public static Question getQuestionMoviesMusicFromAuthor(Category category, String composerName, int value){
+
+        final String englishMovieQuestionFormat =
+                "On which of the following movies did %s compose the music?";
+
+        final String germanMovieQuestionFormat =
+                "In welchen der folgenden Filme hat %s die Musik komponiert?";
+
+        Resource composer = DBPediaService.loadStatements(DBPedia.createResource(composerName));
+
+        // get movies
+        SelectQueryBuilder queryBuilder = DBPediaService.createQueryBuilder()
+                .setLimit(4) // at most four statements
+                .addWhereClause(RDF.type, DBPediaOWL.Film)
+                .addPredicateExistsClause(FOAF.name)
+                .addWhereClause(DBPediaOWL.musicComposer, composer)
+                .addFilterClause(RDFS.label, Locale.GERMAN)
+                .addFilterClause(RDFS.label, Locale.ENGLISH);
+
+        Model moviesWithComposer = DBPediaService.loadStatements(queryBuilder.toQueryString());
+
+        queryBuilder.removeWhereClause(DBPediaOWL.musicComposer, composer);
+        queryBuilder.addMinusClause(DBPediaOWL.musicComposer, composer);
+
+        Model moviesWithoutComposer = DBPediaService.loadStatements(queryBuilder.toQueryString());
+
+        // create question
+        String englishQuestionText = String.format(englishMovieQuestionFormat,
+                DBPediaService.getResourceName(composer, Locale.ENGLISH));
+
+        String germanQuestionText = String.format(germanMovieQuestionFormat,
+                DBPediaService.getResourceName(composer, Locale.GERMAN));
+
+        QuestionBuilder questionBuilder = buildQuestion(
+                category,
+                englishQuestionText,
+                germanQuestionText,
+                moviesWithComposer,
+                moviesWithoutComposer);
+
+        Question question = questionBuilder.createQuestion();
+        question.setValue(value);
+
+        return question;
+    }
+
+    public static Question getQuestionActorsWithDirectorsFromDBPedia(Category category, String actorName, String directorName, int value){
 
         final String englishMovieQuestionFormat =
                 "On which of the following movies starring %s did %s act as a director?";
 
         final String germanMovieQuestionFormat =
-                "In welchen der folgenden Filme mit %s hat %s Regie gefuehrt?";
+                "In welchen der folgenden Filme mit %s hat %s Regie geführt?";
 
-        //@TODO: get existing actor and director (locale name must be retrieved manually)
-        Resource johnnyDepp = DBPediaService.loadStatements(DBPedia.createResource("Johnny_Depp"));
-        Resource timBurton = DBPediaService.loadStatements(DBPedia.createResource("Tim_Burton"));
-
-        String englishJohnnyDepp = DBPediaService.getResourceName(johnnyDepp, Locale.ENGLISH);
-        Logger.info(englishJohnnyDepp);
+        Resource actor = DBPediaService.loadStatements(DBPedia.createResource(actorName));
+        Resource director = DBPediaService.loadStatements(DBPedia.createResource(directorName));
 
         // get movies
         SelectQueryBuilder queryBuilder = DBPediaService.createQueryBuilder()
@@ -49,31 +124,26 @@ public class DBPediaData{
                 .addWhereClause(RDF.type, DBPediaOWL.Film)
                 .addPredicateExistsClause(FOAF.name)
                 .addPredicateExistsClause(RDFS.label)
-                .addWhereClause(DBPediaOWL.starring, johnnyDepp)
-                .addMinusClause(DBPediaOWL.director, timBurton)
+                .addWhereClause(DBPediaOWL.starring, actor)
+                .addMinusClause(DBPediaOWL.director, director)
                 .addFilterClause(RDFS.label, Locale.ENGLISH)
                 .addFilterClause(RDFS.label, Locale.GERMAN);
 
         Model moviesWithoutDirector = DBPediaService.loadStatements(queryBuilder.toQueryString());
 
-        List<String> englishNames =
-                DBPediaService.getResourceNames(moviesWithoutDirector, Locale.ENGLISH.getLanguage());
-        List<String> germanNames =
-                DBPediaService.getResourceNames(moviesWithoutDirector, Locale.GERMAN.getLanguage());
-
-        queryBuilder.removeMinusClause(DBPediaOWL.director, timBurton);
-        queryBuilder.addWhereClause(DBPediaOWL.director, timBurton);
+        queryBuilder.removeMinusClause(DBPediaOWL.director, director);
+        queryBuilder.addWhereClause(DBPediaOWL.director, director);
 
         Model moviesWithDirector = DBPediaService.loadStatements(queryBuilder.toQueryString());
 
         // create question
         String englishQuestionText = String.format(englishMovieQuestionFormat,
-                DBPediaService.getResourceName(johnnyDepp, Locale.ENGLISH),
-                DBPediaService.getResourceName(timBurton, Locale.ENGLISH));
+                DBPediaService.getResourceName(actor, Locale.ENGLISH),
+                DBPediaService.getResourceName(director, Locale.ENGLISH));
 
         String germanQuestionText = String.format(germanMovieQuestionFormat,
-                DBPediaService.getResourceName(johnnyDepp, Locale.GERMAN),
-                DBPediaService.getResourceName(timBurton, Locale.GERMAN));
+                DBPediaService.getResourceName(actor, Locale.GERMAN),
+                DBPediaService.getResourceName(director, Locale.GERMAN));
 
         QuestionBuilder questionBuilder = buildQuestion(
                 category,
@@ -83,6 +153,7 @@ public class DBPediaData{
                 moviesWithoutDirector);
 
         Question question = questionBuilder.createQuestion();
+        question.setValue(value);
 
         return question;
     }

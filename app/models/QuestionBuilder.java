@@ -156,12 +156,6 @@ public class QuestionBuilder {
         int nrWrongChoices = Math.min(getWrongChoicesEN().size(), getMinimumWrongChoicesUsed() +
                 random.nextInt(Math.min(getMaximumWrongChoicesUsed(), getWrongChoicesEN().size())));
 
-        //TODO: shuffeling ist hier ein problem, weil sonst die reihenfolge pro index EN->DE verloren geht
-//        Collections.shuffle(getRightChoicesEN());
-//        Collections.shuffle(getWrongChoicesEN());
-//        Collections.shuffle(getRightChoicesDE());
-//        Collections.shuffle(getWrongChoicesDE());
-
         Question question = new Question();
         question.setCategory(getCategory());
         question.setValue(DBPediaQuestionVALUE);
