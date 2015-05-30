@@ -1,10 +1,7 @@
 package models;
 
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 /**
  * Represents an answer which is stored in the DB
@@ -12,10 +9,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Answer extends BaseEntity {
 
-
+    @Column(name = "textDE", unique = false)
     private String textDE;
+    @Column(name = "textEN", unique = false)
     private String textEN;
-
+    @Column(name = "correctAnswer", unique = false)
     private Boolean correctAnswer;
 
     @ManyToOne(cascade= CascadeType.ALL)

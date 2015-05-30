@@ -60,11 +60,15 @@ public class JeopardyDAO implements IGameDAO {
     @Override
     public void persist(BaseEntity entity) throws NullPointerException{
         if(entity != null){
-            //TODO: finish implementation
+            if(entity.getId() == null || findById(entity.getId()) == null){
+                em().persist(entity);
+                em().flush();
+            }else{
+                throw new PersistenceException("this entity already exist with the given ID");
+            }
 
-                     em().persist(entity);}
-           else{
-            throw new NullPointerException("Entity is null!");
+        }else{
+            throw new NullPointerException("Entity is null");
         }
 
     }
@@ -79,8 +83,7 @@ public class JeopardyDAO implements IGameDAO {
      */
     @Override
     public <T extends BaseEntity> T merge(T entity) {
-        // TODO: Implement Method
-        throw new UnsupportedOperationException("Not yet implemented.");
+        return JPA.em().merge(entity);
     }
 
     /**

@@ -11,8 +11,11 @@ import java.util.List;
 @Entity
 public class Question extends BaseEntity {
 
+    @Column(name = "textDE", unique = false)
     private String textDE;
+    @Column(name = "textEN", unique = false)
     private String textEN;
+    @Column(name = "value", unique = false)
     private int value;
 
     //The category to which this question belongs to

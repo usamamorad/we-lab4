@@ -36,8 +36,7 @@ public class Global extends GlobalSettings {
 		Question q = DBPediaData.getQuestionActorsFromDBPedia(categories.get(0));
 		categories.get(0).addQuestion(q);
 
-		//TODO: merge with existing Category
-		JeopardyDAO.INSTANCE.persist(categories.get(0));
+		JeopardyDAO.INSTANCE.merge(categories.get(0));
 
 	}
 

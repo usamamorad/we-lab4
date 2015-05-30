@@ -54,19 +54,12 @@ public class DBPediaData{
                 .addFilterClause(RDFS.label, Locale.ENGLISH)
                 .addFilterClause(RDFS.label, Locale.GERMAN);
 
-        Logger.info(String.valueOf(queryBuilder));
-
         Model moviesWithoutDirector = DBPediaService.loadStatements(queryBuilder.toQueryString());
-
-        Logger.info(String.valueOf(moviesWithoutDirector));
 
         List<String> englishNames =
                 DBPediaService.getResourceNames(moviesWithoutDirector, Locale.ENGLISH.getLanguage());
         List<String> germanNames =
                 DBPediaService.getResourceNames(moviesWithoutDirector, Locale.GERMAN.getLanguage());
-
-        Logger.info("english: " + englishNames.size() + ": " + englishNames);
-        Logger.info("german: " + germanNames.size() + ": " + germanNames);
 
         queryBuilder.removeMinusClause(DBPediaOWL.director, timBurton);
         queryBuilder.addWhereClause(DBPediaOWL.director, timBurton);

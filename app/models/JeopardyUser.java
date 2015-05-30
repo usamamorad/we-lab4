@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
@@ -29,6 +31,8 @@ public class JeopardyUser extends BaseEntity {
 
 	private String firstName;
 	private String lastName;
+
+	@Temporal(TemporalType.DATE)
 	private Date birthDate;
 	private Gender gender;
 	
